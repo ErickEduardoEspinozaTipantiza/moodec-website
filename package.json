@@ -21,9 +21,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tu-usuario/moodec-website.git"
+    "url": "https://github.com/ErickEduardoEspinozaTipantiza/moodec-website.git"
   },
-  "homepage": "https://tu-usuario.github.io/moodec-website",
+  "homepage": "https://ErickEduardoEspinozaTipantiza.github.io/moodec-website",
   "devDependencies": {
     "serve": "^14.0.0",
     "live-server": "^1.2.2"
