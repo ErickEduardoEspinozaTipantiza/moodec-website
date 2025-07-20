@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOODEC - La emoción detrás de tu voz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preload" as="video" href="video/video4.mp4">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <p>Cargando MOODEC...</p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="showcase" id="inicio">
+        <header>
+            <div class="logo">
+                <img src="MOODEC.png" alt="MOODEC Logo" class="logo-image">
+                <span class="logo-text">MOODEC</span>
+            </div>
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li><a href="#inicio" data-section="inicio">Inicio</a></li>
+                        <li><a href="#beneficios" data-section="beneficios">Beneficios</a></li>
+                        <li><a href="#bot" data-section="bot">Nuestro Bot</a></li>
+                        <li><a href="#testimonios" data-section="testimonios">Testimonios</a></li>
+                        <li><a href="#contacto" data-section="contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Video de fondo -->
+        <video src="video/video4.mp4" muted loop autoplay playsinline></video>
+        <div class="overlay"></div>
+
+        <!-- Texto principal -->
+        <div class="text">
+            <div class="hero-logo">
+                <img src="MOODEC.png" alt="MOODEC Logo" class="hero-logo-image">
+            </div>
+            <h1>ModyBot</h1>
+            <h2>La emoción detrás de tu voz</h2>
+            <p>
+                Entrenamos un modelo de inteligencia artificial capaz de detectar emociones a través de la voz.
+                Mejora la experiencia de tus clientes con respuestas empáticas y análisis en tiempo real.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://t.me/ModyEc_bot" target="_blank" class="btn-primary">
+                    <i class="fab fa-telegram"></i>
+                    Abrir en Telegram
+                </a>
+                <a href="#beneficios" class="btn-secondary">
+                    <i class="fas fa-play"></i>
+                    Ver Demo
+                </a>
+            </div>
+        </div>
+
+        <!-- Indicadores de scroll -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Desliza para explorar</p>
+        </div>
+
+        <!-- Redes sociales -->
+        <ul class="social">
+            <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+    </section>
+
+    <!-- Sección de Beneficios -->
+    <section class="benefits" id="beneficios">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegir MOODEC?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>IA Avanzada</h3>
+                    <p>Algoritmos de aprendizaje profundo entrenados con miles de muestras de voz para una precisión excepcional.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Tiempo Real</h3>
+                    <p>Análisis instantáneo de emociones para respuestas inmediatas y experiencias de usuario mejoradas.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Seguro y Privado</h3>
+                    <p>Tus datos están protegidos con encriptación de extremo a extremo y cumplimos con GDPR.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Métricas Detalladas</h3>
+                    <p>Dashboard completo con análisis de emociones, tendencias y insights para tu negocio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección del Bot -->
+    <section class="bot-section" id="bot">
+        <div class="container">
+            <div class="bot-content">
+                <div class="bot-info">
+                    <h2>Conoce a ModyBot</h2>
+                    <p>Nuestro chatbot inteligente integra detección de emociones en tiempo real para brindar respuestas más empáticas y personalizadas.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Detección de 7 emociones principales</li>
+                        <li><i class="fas fa-check"></i> Respuestas adaptadas al estado emocional</li>
+                        <li><i class="fas fa-check"></i> Integración fácil con Telegram</li>
+                        <li><i class="fas fa-check"></i> Análisis de sentimientos avanzado</li>
+                    </ul>
+                    <a href="https://t.me/ModyBot" target="_blank" class="btn-primary">
+                        <i class="fab fa-telegram"></i>
+                        Probar ahora
+                    </a>
+                </div>
+                <div class="bot-demo">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="chat-header">
+                                <i class="fas fa-robot"></i>
+                                <span>ModyBot</span>
+                                <div class="status online"></div>
+                            </div>
+                            <div class="chat-messages">
+                                <div class="message bot">
+                                    <p>¡Hola! Soy ModyBot. Puedo detectar tu estado emocional a través de tu voz. ¿Cómo te sientes hoy?</p>
+                                </div>
+                                <div class="message user">
+                                    <p>🎤 Mensaje de voz enviado</p>
+                                    <span class="emotion-tag">😊 Feliz - 87%</span>
+                                </div>
+                                <div class="message bot">
+                                    <p>¡Qué maravilloso saber que estás feliz! Tu energía positiva se nota en tu voz. ¿En qué puedo ayudarte hoy?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen nuestros usuarios</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"MOODEC ha revolucionado la forma en que entendemos a nuestros clientes. La precisión emocional es impresionante."</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/60?img=1" alt="María González">
+                        <div>
+                            <h4>María González</h4>
+                            <span>CEO, TechStart</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Increíble tecnología. Nuestros usuarios se sienten más comprendidos y la satisfacción ha aumentado un 40%."</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/60?img=3" alt="Carlos Mendez">
+                        <div>
+                            <h4>Carlos Mendez</h4>
+                            <span>Gerente, CustomerFirst</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"La integración fue súper fácil y los resultados inmediatos. ModyBot entiende mejor que muchos humanos."</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/60?img=5" alt="Ana Rodriguez">
+                        <div>
+                            <h4>Ana Rodriguez</h4>
+                            <span>Desarrolladora, InnovateLab</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">¿Listo para empezar?</h2>
+            <p class="contact-subtitle">Transforma la experiencia de tus usuarios con inteligencia emocional artificial</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contáctanos</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>example@moodec.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+593 989841415</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Quito, Ecuador</span>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Tu email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Empresa">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="MOODEC.png" alt="MOODEC Logo" class="footer-logo-image">
+                        <h3>MOODEC</h3>
+                    </div>
+                    <p>La emoción detrás de tu voz</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#beneficios">Beneficios</a></li>
+                        <li><a href="#bot">ModyBot</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MOODEC. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

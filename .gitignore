@@ -1,0 +1,28 @@
+# Archivos de sistema y temporales
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+*.log
+
+# Archivos de editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de respaldo
+*.bak
+*.backup
+
+# Carpetas node_modules (si usas npm)
+node_modules/
+npm-debug.log
+
+# Archivos de Windows
+desktop.ini
+$RECYCLE.BIN/
+
+# Variables de entorno
+.env
+.env.local
