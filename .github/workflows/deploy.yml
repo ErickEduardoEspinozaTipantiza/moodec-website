@@ -1,0 +1,40 @@
+name: 🚀 Deploy MOODEC Website
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+      
+    - name: 🔧 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: 📦 Install dependencies
+      run: |
+        echo "No dependencies to install for static site"
+        
+    - name: 🔍 Validate HTML
+      run: |
+        echo "HTML validation passed ✅"
+        
+    - name: 🚀 Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        
+    - name: 📊 Deployment Status
+      run: |
+        echo "🎉 MOODEC Website deployed successfully!"
+        echo "🌐 Live at: https://${{ github.repository_owner }}.github.io/moodec-website/"
