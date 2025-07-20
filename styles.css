@@ -26,10 +26,15 @@ body {
     color: var(--text-light);
     background: var(--bg-dark);
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 .container {
@@ -194,6 +199,7 @@ nav ul li a:hover {
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
+    z-index: 1001;
 }
 
 .menu-toggle span {
@@ -202,6 +208,67 @@ nav ul li a:hover {
     background: var(--primary-color);
     border-radius: 2px;
     transition: all 0.3s ease;
+}
+
+/* Mobile Navigation */
+nav.active {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    padding-top: 80px;
+    animation: slideInFromTop 0.3s ease;
+}
+
+nav.active ul {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 30px;
+}
+
+nav.active ul li a {
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+nav.active ul li a:hover {
+    border-color: var(--primary-color);
+    background: rgba(0, 212, 255, 0.1);
+    transform: scale(1.05);
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Menu Toggle Animation */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Hero Section */
@@ -327,6 +394,11 @@ nav ul li a:hover {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    min-height: 48px;
+    min-width: 48px;
+    user-select: none;
 }
 
 .btn-primary {
@@ -335,9 +407,16 @@ nav ul li a:hover {
     box-shadow: 0 10px 30px var(--shadow-light);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px var(--shadow-light);
+    outline: none;
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px var(--shadow-light);
 }
 
 .btn-secondary {
@@ -346,10 +425,16 @@ nav ul li a:hover {
     border: 2px solid var(--primary-color);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-secondary:focus {
     background: var(--primary-color);
     color: var(--text-white);
     transform: translateY(-3px);
+    outline: none;
+}
+
+.btn-secondary:active {
+    transform: translateY(-1px);
 }
 
 /* Scroll Indicator */
@@ -889,13 +974,20 @@ footer {
     }
 }
 
-/* Responsive Design */
+/* ===== RESPONSIVE DESIGN MEJORADO ===== */
+
+/* Tabletas grandes */
 @media (max-width: 1200px) {
     .container {
         padding: 0 40px;
     }
+    
+    header {
+        padding: 20px 60px;
+    }
 }
 
+/* Tabletas */
 @media (max-width: 991px) {
     header {
         padding: 20px 40px;
@@ -922,21 +1014,33 @@ footer {
     }
     
     .text h1 {
-        font-size: 3em;
+        font-size: 3.5em;
     }
     
     .text h2 {
-        font-size: 2em;
+        font-size: 2.2em;
+    }
+    
+    .text p {
+        font-size: 1.1em;
+        max-width: 600px;
     }
     
     .cta-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
+    }
+    
+    .cta-buttons .btn-primary,
+    .cta-buttons .btn-secondary {
+        width: 280px;
+        text-align: center;
     }
     
     .bot-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 50px;
         text-align: center;
     }
     
@@ -946,9 +1050,9 @@ footer {
     }
     
     .footer-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         text-align: center;
-        gap: 30px;
+        gap: 40px;
     }
     
     .social {
@@ -960,11 +1064,23 @@ footer {
     .scroll-indicator {
         display: none;
     }
+    
+    .benefits-grid,
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
 }
 
+/* Móviles grandes */
 @media (max-width: 768px) {
     header {
         padding: 15px 20px;
+        backdrop-filter: blur(15px);
+    }
+    
+    header.scrolled {
+        padding: 12px 20px;
     }
     
     .logo-image {
@@ -973,11 +1089,107 @@ footer {
     
     .logo-text {
         font-size: 1.3em;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
     }
     
     .hero-logo-image {
         height: 80px;
+        margin-bottom: 20px;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    .text {
+        padding: 0 20px;
+        text-align: center;
+    }
+    
+    .text h1 {
+        font-size: 2.8em;
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+    
+    .text h2 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+    
+    .text p {
+        font-size: 1em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        max-width: 100%;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .cta-buttons .btn-primary,
+    .cta-buttons .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        padding: 15px 20px;
+        font-size: 1em;
+    }
+    
+    /* Secciones */
+    .benefits, .testimonials, .contact, .bot-section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1em;
+        margin-bottom: 40px;
+    }
+    
+    .benefits-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .benefit-card,
+    .testimonial-card {
+        padding: 30px 25px;
+    }
+    
+    .benefit-card h3,
+    .testimonial-card h4 {
+        font-size: 1.3em;
+    }
+    
+    /* Formulario de contacto */
+    .contact-form {
+        padding: 30px 25px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 15px;
+        font-size: 1em;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
     }
     
     .footer-logo {
@@ -988,67 +1200,209 @@ footer {
         height: 35px;
     }
     
-    .container {
-        padding: 0 20px;
+    /* Video ajuste móvil */
+    .showcase video {
+        object-position: center;
     }
     
-    .text {
-        padding: 0 20px;
+    /* Navegación móvil mejorada */
+    .menu-toggle {
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
     }
     
-    .text h1 {
-        font-size: 2.5em;
-    }
-    
-    .text h2 {
-        font-size: 1.5em;
-    }
-    
-    .text p {
-        font-size: 1em;
-    }
-    
-    .benefits, .testimonials, .contact, .bot-section {
-        padding: 60px 0;
-    }
-    
-    .section-title {
-        font-size: 2em;
-    }
-    
-    .benefits-grid,
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .btn-primary, .btn-secondary {
-        padding: 12px 25px;
-        font-size: 0.9em;
+    .menu-toggle span {
+        width: 100%;
+        height: 3px;
+        background: var(--text-white);
+        transition: all 0.3s ease;
     }
 }
 
+/* Móviles pequeños */
 @media (max-width: 480px) {
+    header {
+        padding: 12px 15px;
+    }
+    
+    .logo-image {
+        height: 30px;
+    }
+    
+    .logo-text {
+        font-size: 1.2em;
+    }
+    
+    .hero-logo-image {
+        height: 70px;
+        margin-bottom: 15px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .text {
+        padding: 0 15px;
+    }
+    
     .text h1 {
-        font-size: 2em;
+        font-size: 2.2em;
+        line-height: 1.1;
+        margin-bottom: 10px;
     }
     
     .text h2 {
-        font-size: 1.2em;
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+    
+    .text p {
+        font-size: 0.95em;
+        line-height: 1.5;
+        margin-bottom: 25px;
+    }
+    
+    .cta-buttons .btn-primary,
+    .cta-buttons .btn-secondary {
+        padding: 12px 20px;
+        font-size: 0.9em;
+        max-width: 280px;
+    }
+    
+    /* Secciones más compactas */
+    .benefits, .testimonials, .contact, .bot-section {
+        padding: 50px 0;
+    }
+    
+    .section-title {
+        font-size: 1.9em;
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+    
+    .section-subtitle {
+        font-size: 1em;
+        margin-bottom: 35px;
     }
     
     .benefit-card,
     .testimonial-card,
     .contact-form {
-        padding: 25px;
+        padding: 25px 20px;
+        margin-bottom: 20px;
     }
     
+    .benefit-card h3,
+    .testimonial-card h4 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    
+    .benefit-card p,
+    .testimonial-card p {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+    
+    /* Phone mockup más pequeño */
     .phone-mockup {
-        max-width: 250px;
+        max-width: 220px;
+        margin: 0 auto;
     }
     
     .phone-screen {
-        height: 400px;
-        padding: 15px;
+        height: 350px;
+        padding: 12px;
+    }
+    
+    /* Formulario más compacto */
+    .form-group input,
+    .form-group textarea {
+        padding: 12px;
+        font-size: 0.95em;
+    }
+    
+    .form-group textarea {
+        min-height: 100px;
+    }
+    
+    /* Footer más compacto */
+    .footer {
+        padding: 40px 0;
+    }
+    
+    .footer-content {
+        gap: 25px;
+    }
+    
+    .social a {
+        font-size: 1.2em;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ===== MEJORAS ADICIONALES PARA MÓVILES ===== */
+
+/* Prevenir zoom en inputs en iOS */
+input[type="text"], 
+input[type="email"], 
+textarea {
+    font-size: 16px !important;
+}
+
+/* Mejorar scrolling en iOS */
+* {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Ocultar scrollbar en móviles */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* Estilo para pantallas muy pequeñas (iPhone SE, etc.) */
+@media (max-width: 320px) {
+    .text h1 {
+        font-size: 1.8em;
+    }
+    
+    .text h2 {
+        font-size: 1.1em;
+    }
+    
+    .text p {
+        font-size: 0.9em;
+    }
+    
+    .section-title {
+        font-size: 1.6em;
+    }
+    
+    .benefit-card,
+    .testimonial-card,
+    .contact-form {
+        padding: 20px 15px;
+    }
+    
+    .cta-buttons .btn-primary,
+    .cta-buttons .btn-secondary {
+        padding: 12px 20px;
+        font-size: 0.85em;
+        max-width: 240px;
+    }
+    
+    .phone-mockup {
+        max-width: 180px;
+    }
+    
+    .phone-screen {
+        height: 280px;
+        padding: 8px;
     }
 }
